@@ -4,6 +4,8 @@
 
 Get screenshots of windows and monitors.
 
+https://github.com/user-attachments/assets/0cc6e2ea-cf85-41ed-a809-078393a95c0f
+
 ## Install
 
 ```shell
