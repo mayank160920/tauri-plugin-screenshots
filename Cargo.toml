@@ -1,0 +1,22 @@
+[package]
+name = "tauri-plugin-screenshots"
+version = "1.0.0"
+authors = [ "ayangweb" ]
+description = "Get screenshots of windows and monitors."
+repository = "https://github.com/ayangweb/tauri-plugin-screenshots"
+keywords = ["screenshots", "tauri", "tauri-plugin", "tauri-plugin-screenshots"]
+license = "MIT"
+edition = "2021"
+rust-version = "1.77.2"
+exclude = ["/examples", "/dist-js", "/guest-js", "/node_modules"]
+links = "tauri-plugin-screenshots"
+
+[dependencies]
+tauri = { version = "2.3.0" }
+serde = "1.0"
+thiserror = "2"
+xcap = "0.3.3"
+
+
+[build-dependencies]
+tauri-plugin = { version = "2.0.4", features = ["build"] }
