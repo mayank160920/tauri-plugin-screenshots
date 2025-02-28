@@ -13,7 +13,10 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
             commands::get_screenshotable_windows,
             commands::get_screenshotable_monitors,
             commands::get_window_screenshot,
-            commands::get_monitor_screenshot
+            commands::get_monitor_screenshot,
+            commands::remove_window_screenshot,
+            commands::remove_monitor_screenshot,
+            commands::clear_screenshots
         ])
         .build()
 }

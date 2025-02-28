@@ -295,6 +295,16 @@
       "type": "string",
       "oneOf": [
         {
+          "description": "Enables the clear_screenshots command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-clear-screenshots"
+        },
+        {
+          "description": "Denies the clear_screenshots command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-clear-screenshots"
+        },
+        {
           "description": "Enables the get_monitor_screenshot command without any pre-configured scope.",
           "type": "string",
           "const": "allow-get-monitor-screenshot"
@@ -335,24 +345,24 @@
           "const": "deny-get-window-screenshot"
         },
         {
-          "description": "Enables the monitor_screenshot command without any pre-configured scope.",
+          "description": "Enables the remove_monitor_screenshot command without any pre-configured scope.",
           "type": "string",
-          "const": "allow-monitor-screenshot"
+          "const": "allow-remove-monitor-screenshot"
         },
         {
-          "description": "Denies the monitor_screenshot command without any pre-configured scope.",
+          "description": "Denies the remove_monitor_screenshot command without any pre-configured scope.",
           "type": "string",
-          "const": "deny-monitor-screenshot"
+          "const": "deny-remove-monitor-screenshot"
         },
         {
-          "description": "Enables the window_screenshot command without any pre-configured scope.",
+          "description": "Enables the remove_window_screenshot command without any pre-configured scope.",
           "type": "string",
-          "const": "allow-window-screenshot"
+          "const": "allow-remove-window-screenshot"
         },
         {
-          "description": "Denies the window_screenshot command without any pre-configured scope.",
+          "description": "Denies the remove_window_screenshot command without any pre-configured scope.",
           "type": "string",
-          "const": "deny-window-screenshot"
+          "const": "deny-remove-window-screenshot"
         },
         {
           "description": "Default permissions for the plugin",

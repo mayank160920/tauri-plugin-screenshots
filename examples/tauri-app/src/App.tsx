@@ -7,7 +7,7 @@ import {
   getWindowScreenshot,
   getMonitorScreenshot,
 } from "tauri-plugin-screenshots-api";
-import { Button, Divider, List, Image, Spin } from "antd";
+import { Button, Divider, List, Image, Spin, message } from "antd";
 import { convertFileSrc } from "@tauri-apps/api/core";
 
 interface State {
@@ -51,13 +51,17 @@ const App = () => {
               actions={[
                 <Button
                   onClick={async () => {
-                    toggle();
+                    try {
+                      toggle();
 
-                    const url = await getWindowScreenshot(id);
+                      const url = await getWindowScreenshot(id);
 
-                    state.windowScreenshots[id] = convertFileSrc(url);
-
-                    toggle();
+                      state.windowScreenshots[id] = convertFileSrc(url);
+                    } catch (error) {
+                      message.error(String(error));
+                    } finally {
+                      toggle();
+                    }
                   }}
                 >
                   Screenshot
@@ -89,13 +93,17 @@ const App = () => {
               actions={[
                 <Button
                   onClick={async () => {
-                    toggle();
+                    try {
+                      toggle();
 
-                    const url = await getMonitorScreenshot(id);
+                      const url = await getMonitorScreenshot(id);
 
-                    state.monitorScreenshots[id] = convertFileSrc(url);
-
-                    toggle();
+                      state.monitorScreenshots[id] = convertFileSrc(url);
+                    } catch (error) {
+                      message.error(String(error));
+                    } finally {
+                      toggle();
+                    }
                   }}
                 >
                   Screenshot

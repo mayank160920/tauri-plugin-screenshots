@@ -6,6 +6,9 @@ Default permissions for the plugin
 - `allow-get-screenshotable-monitors`
 - `allow-get-window-screenshot`
 - `allow-get-monitor-screenshot`
+- `allow-remove-window-screenshot`
+- `allow-remove-monitor-screenshot`
+- `allow-clear-screenshots`
 
 ## Permission Table
 
@@ -15,6 +18,32 @@ Default permissions for the plugin
 <th>Description</th>
 </tr>
 
+
+<tr>
+<td>
+
+`screenshots:allow-clear-screenshots`
+
+</td>
+<td>
+
+Enables the clear_screenshots command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`screenshots:deny-clear-screenshots`
+
+</td>
+<td>
+
+Denies the clear_screenshots command without any pre-configured scope.
+
+</td>
+</tr>
 
 <tr>
 <td>
@@ -123,25 +152,12 @@ Denies the get_window_screenshot command without any pre-configured scope.
 <tr>
 <td>
 
-`screenshots:allow-monitor-screenshot`
+`screenshots:allow-remove-monitor-screenshot`
 
 </td>
 <td>
 
-Enables the monitor_screenshot command without any pre-configured scope.
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-`screenshots:deny-monitor-screenshot`
-
-</td>
-<td>
-
-Denies the monitor_screenshot command without any pre-configured scope.
+Enables the remove_monitor_screenshot command without any pre-configured scope.
 
 </td>
 </tr>
@@ -149,12 +165,12 @@ Denies the monitor_screenshot command without any pre-configured scope.
 <tr>
 <td>
 
-`screenshots:allow-window-screenshot`
+`screenshots:deny-remove-monitor-screenshot`
 
 </td>
 <td>
 
-Enables the window_screenshot command without any pre-configured scope.
+Denies the remove_monitor_screenshot command without any pre-configured scope.
 
 </td>
 </tr>
@@ -162,12 +178,25 @@ Enables the window_screenshot command without any pre-configured scope.
 <tr>
 <td>
 
-`screenshots:deny-window-screenshot`
+`screenshots:allow-remove-window-screenshot`
 
 </td>
 <td>
 
-Denies the window_screenshot command without any pre-configured scope.
+Enables the remove_window_screenshot command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`screenshots:deny-remove-window-screenshot`
+
+</td>
+<td>
+
+Denies the remove_window_screenshot command without any pre-configured scope.
 
 </td>
 </tr>
