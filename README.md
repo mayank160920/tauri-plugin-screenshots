@@ -46,10 +46,14 @@ pub fn run() {
 Afterwards all the plugin's APIs are available through the JavaScript guest bindings:
 
 ```ts
-import { getScreenshotableWindows } from "tauri-plugin-screenshots-api";
+import {
+  getScreenshotableWindows,
+  getWindowScreenshot,
+} from "tauri-plugin-screenshots-api";
 
 const windows = await getScreenshotableWindows();
-console.log(windows); // xx/tauri-plugin-screenshots/window-1.png
+const path = await getWindowScreenshot(windows[0].id);
+console.log(path); // xx/tauri-plugin-screenshots/window-{id}.png
 ```
 
 ## Methods
