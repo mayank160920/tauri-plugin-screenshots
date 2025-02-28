@@ -49,7 +49,6 @@ Afterwards all the plugin's APIs are available through the JavaScript guest bind
 import { getScreenshotableWindows } from "tauri-plugin-screenshots-api";
 
 const windows = await getScreenshotableWindows();
-
 console.log(windows); // xx/tauri-plugin-screenshots/window-1.png
 ```
 
@@ -86,3 +85,7 @@ pnpm tauri dev
 ## Thanks
 
 - Use [xcap](https://github.com/nashaofu/xcap) to get window and monitor screenshots.
+
+## Who's Using It?
+
+- [Coco AI](https://github.com/infinilabs/coco-app) - Search, Connect, Collaborate, Your Personal AI Search and Assistant, all in one space.
