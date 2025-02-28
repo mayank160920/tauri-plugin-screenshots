@@ -49,7 +49,8 @@ Afterwards all the plugin's APIs are available through the JavaScript guest bind
 import { getScreenshotableWindows } from "tauri-plugin-screenshots-api";
 
 const windows = await getScreenshotableWindows();
-console.log(windows);
+
+console.log(windows); // xx/tauri-plugin-screenshots/window-1.png
 ```
 
 ## Methods
@@ -60,6 +61,9 @@ console.log(windows);
 | `getScreenshotableMonitors` | Get all monitors that can take screenshots.             |
 | `getWindowScreenshot`       | Get a screenshot of the window with the specified id.   |
 | `getMonitorScreenshot`      | Get a screenshot of the monitors with the specified id. |
+| `removeWindowScreenshot`    | Remove locally stored window screenshots.               |
+| `removeMonitorScreenshot`   | Remove locally stored monitor screenshots.              |
+| `clearScreenshots`          | Remove all locally stored screenshots.                  |
 
 ## Example
 
