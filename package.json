@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ayangweb/tauri-plugin-screenshots.git"
+    "url": "git+https://github.com/mayank160920/tauri-plugin-screenshots.git"
   },
   "homepage": "https://github.com/ayangweb/tauri-plugin-screenshots#readme",
   "bugs": "https://github.com/ayangweb/tauri-plugin-screenshots/issues",
