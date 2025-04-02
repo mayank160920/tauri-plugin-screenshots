@@ -2,4 +2,4 @@
 
 [default]
 description = "Default permissions for the plugin"
-permissions = ["allow-get-screenshotable-windows", "allow-get-screenshotable-monitors", "allow-get-window-screenshot", "allow-get-monitor-screenshot", "allow-remove-window-screenshot", "allow-remove-monitor-screenshot", "allow-clear-screenshots"]
+permissions = ["allow-get-screenshotable-windows", "allow-get-screenshotable-monitors", "allow-get-window-screenshot", "allow-get-monitor-screenshot", "allow-get-monitor-screenshot-base64url", "allow-remove-window-screenshot", "allow-remove-monitor-screenshot", "allow-clear-screenshots"]

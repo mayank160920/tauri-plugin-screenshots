@@ -30,8 +30,8 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "prepublishOnly": "pnpm build",
-    "pretest": "pnpm build",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run build",
     "release": "release-it"
   },
   "dependencies": {

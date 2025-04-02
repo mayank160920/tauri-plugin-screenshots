@@ -1,0 +1,13 @@
+# Automatically generated - DO NOT EDIT!
+
+"$schema" = "../../schemas/schema.json"
+
+[[permission]]
+identifier = "allow-get-monitor-screenshot-base64url"
+description = "Enables the get_monitor_screenshot_base64url command without any pre-configured scope."
+commands.allow = ["get_monitor_screenshot_base64url"]
+
+[[permission]]
+identifier = "deny-get-monitor-screenshot-base64url"
+description = "Denies the get_monitor_screenshot_base64url command without any pre-configured scope."
+commands.deny = ["get_monitor_screenshot_base64url"]

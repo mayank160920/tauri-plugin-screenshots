@@ -2,10 +2,13 @@
 
 Default permissions for the plugin
 
+#### This default permission set includes the following:
+
 - `allow-get-screenshotable-windows`
 - `allow-get-screenshotable-monitors`
 - `allow-get-window-screenshot`
 - `allow-get-monitor-screenshot`
+- `allow-get-monitor-screenshot-base64url`
 - `allow-remove-window-screenshot`
 - `allow-remove-monitor-screenshot`
 - `allow-clear-screenshots`
@@ -67,6 +70,32 @@ Enables the get_monitor_screenshot command without any pre-configured scope.
 <td>
 
 Denies the get_monitor_screenshot command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`screenshots:allow-get-monitor-screenshot-base64url`
+
+</td>
+<td>
+
+Enables the get_monitor_screenshot_base64url command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`screenshots:deny-get-monitor-screenshot-base64url`
+
+</td>
+<td>
+
+Denies the get_monitor_screenshot_base64url command without any pre-configured scope.
 
 </td>
 </tr>

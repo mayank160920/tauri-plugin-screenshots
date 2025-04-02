@@ -6,6 +6,7 @@ import {
   ScreenshotableMonitor,
   getWindowScreenshot,
   getMonitorScreenshot,
+  getMonitorScreenshotBase64url,
 } from "tauri-plugin-screenshots-api";
 import { Button, Divider, List, Image, Spin, message } from "antd";
 import { convertFileSrc } from "@tauri-apps/api/core";
@@ -96,9 +97,11 @@ const App = () => {
                     try {
                       toggle();
 
-                      const url = await getMonitorScreenshot(id);
+                      // const url = await getMonitorScreenshot(id);
+                      // state.monitorScreenshots[id] = convertFileSrc(url);
 
-                      state.monitorScreenshots[id] = convertFileSrc(url);
+                      const base64url = await getMonitorScreenshotBase64url(id);
+                      state.monitorScreenshots[id] = base64url;
                     } catch (error) {
                       message.error(String(error));
                     } finally {

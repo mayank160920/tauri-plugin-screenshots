@@ -1,8 +1,10 @@
 use std::{
     fs::{create_dir_all, remove_dir_all, remove_file},
+    io::Cursor,
     path::PathBuf,
 };
 
+use base64::{engine::general_purpose, Engine as _};
 use serde::Serialize;
 use tauri::{command, AppHandle, Manager, Runtime};
 use xcap::{Monitor, Window};
@@ -191,6 +193,55 @@ pub async fn get_monitor_screenshot<R: Runtime>(
         image.save(&save_path).map_err(|err| err.to_string())?;
 
         return Ok(save_path);
+    };
+
+    Err("Monitor not found".to_string())
+}
+
+/// Get a screenshot of the monitor with the specified id as a base64 data URL.
+///
+/// # Arguments
+///
+/// - `id`: Monitor id.
+///
+/// # Returns
+/// - `Ok(String)`: Base64 data URL of the screenshot image.
+/// - `Err(String)`: An error message string on failure.
+///
+/// # Example
+/// ```
+/// use tauri_plugin_screenshots::get_monitor_screenshot_base64url;
+///
+/// let data_url = get_monitor_screenshot_base64url(1).await.unwrap();
+/// println!("{}", data_url); // data:image/png;base64,...
+/// ```
+#[command]
+pub async fn get_monitor_screenshot_base64url(id: u32) -> Result<String, String> {
+    let monitors = Monitor::all().map_err(|err| err.to_string())?;
+
+    if let Some(monitor) = monitors.iter().find(|item| item.id() == id) {
+        let image = monitor.capture_image().map_err(|err| err.to_string())?;
+        
+        // Convert to PNG in memory
+        let dynamic_image = image::DynamicImage::ImageRgba8(image::RgbaImage::from_raw(
+            image.width(), 
+            image.height(),
+            image.into_raw()
+        ).ok_or("Failed to convert image".to_string())?);
+        
+        // Use Cursor to wrap a Vec<u8> to make it implement Seek
+        let mut buffer = Vec::new();
+        let mut cursor = Cursor::new(&mut buffer);
+        dynamic_image.write_to(&mut cursor, image::ImageFormat::Png)
+            .map_err(|err| err.to_string())?;
+        
+        // Encode the binary data as base64
+        let encoded = general_purpose::STANDARD.encode(&buffer);
+        
+        // Return as a data URL
+        let data_url = format!("data:image/png;base64,{}", encoded);
+        
+        return Ok(data_url);
     };
 
     Err("Monitor not found".to_string())

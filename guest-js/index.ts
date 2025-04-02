@@ -15,6 +15,7 @@ export const COMMAND = {
   GET_SCREENSHOTABLE_MONITORS: "plugin:screenshots|get_screenshotable_monitors",
   GET_WINDOW_SCREENSHOT: "plugin:screenshots|get_window_screenshot",
   GET_MONITOR_SCREENSHOT: "plugin:screenshots|get_monitor_screenshot",
+  GET_MONITOR_SCREENSHOT_BASE64URL: "plugin:screenshots|get_monitor_screenshot_base64url",
   REMOVE_WINDOW_SCREENSHOT: "plugin:screenshots|remove_window_screenshot",
   REMOVE_MONITOR_SCREENSHOT: "plugin:screenshots|remove_monitor_screenshot",
   CLEAR_SCREENSHOTS: "plugin:screenshots|clear_screenshots",
@@ -78,6 +79,23 @@ export const getWindowScreenshot = (id: number) => {
  */
 export const getMonitorScreenshot = (id: number) => {
   return invoke<string>(COMMAND.GET_MONITOR_SCREENSHOT, { id });
+};
+
+/**
+ * Get a screenshot of the monitor with the specified id as a base64 data URL.
+ *
+ * @param id Monitor id.
+ *
+ * @returns The base64 data URL of the screenshot image.
+ *
+ * @example
+ * import { getMonitorScreenshotBase64url } from "tauri-plugin-screenshots-api"
+ *
+ * const dataUrl = await getMonitorScreenshotBase64url(1)
+ * console.log(dataUrl) // data:image/png;base64,...
+ */
+export const getMonitorScreenshotBase64url = (id: number) => {
+  return invoke<string>(COMMAND.GET_MONITOR_SCREENSHOT_BASE64URL, { id });
 };
 
 /**
